@@ -1,15 +1,15 @@
 #include <stdio.h>
 
 void main(){
-    int base_sal;
-    printf("Enter the multiplier: ");
-    scanf("%d", &base_sal);
+    float base_sal;
+    printf("Enter the base salary: ");
+    scanf("%f", &base_sal);
 
-    int HRA = base_sal * 10 / 100;
-    int TA  = base_sal * 5 / 100;
-    int tax = base_sal * 2 / 100;
+    float HRA = base_sal * 10.0 / 100.0;
+    float TA  = base_sal * 5.0 / 100.0;
+    float tax = base_sal * 2.0 / 100.0;
 
-    int net_salary = base_sal - HRA - TA - tax;
+    float net_salary = base_sal - HRA - TA - tax;
 
-    printf("Net salary is: %d\n", net_salary);
+    printf("Net salary is: %.2f\n", net_salary);
 }
