@@ -35,6 +35,24 @@ void print_matrix(int matrix[3][3]) {
     }
 }
 
+int min_in_arr(int length, int arr[length]) {
+    int min = arr[0];
+    for(int i = 0; i < length; i++) {
+        int curr = arr[i];
+        if (curr < min) { min = curr; }
+    }
+    return min;
+}
+
+int max_in_arr(int length, int arr[length]) {
+    int max = arr[0];
+    for(int i = 0; i < length; i++) {
+        int curr = arr[i];
+        if (curr > max) { max = curr; }
+    }
+    return max;
+}
+
 void main(){
     int matrix_a[3][3];
     int matrix_b[3][3];
