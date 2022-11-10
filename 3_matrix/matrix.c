@@ -1,34 +1,34 @@
 #include <stdio.h>
 
-void get_matrix_values_from_user(int m, int n, int matrix[m][n]) {
-    for (int i = 0; i < m; i++) {
-        printf("Enter %d numbers for row %d : ", n, i + 1);
-        for (int j = 0; j < n; j++) {
+void get_matrix_values_from_user(int matrix[3][3]) {
+    for (int i = 0; i < 3; i++) {
+        printf("Enter 3 numbers for row %d : ", i + 1);
+        for (int j = 0; j < 3; j++) {
             scanf("%d", &matrix[i][j]);
         }
     }
 }
 
-void get_two_matrices_from_user(int m, int n, int matrix_a[m][n], int matrix_b[m][n]) {
+void get_two_matrices_from_user(int matrix_a[3][3], int matrix_b[3][3]) {
     printf("\nEnter Values for matrix a:\n");
-    get_matrix_values_from_user(m, n, matrix_a);
+    get_matrix_values_from_user(matrix_a);
     printf("\n\n");
     printf("Enter Values for matrix b:\n");
-    get_matrix_values_from_user(m, n, matrix_b);
+    get_matrix_values_from_user(matrix_b);
 }
 
-void add_matrix(int m, int n, int matrix_a[m][n], int matrix_b[m][n], int result_matrix[m][n]) {
-    for (int i = 0; i < m; i++) {
-        for (int j = 0; j < n; j++) {
+void add_matrix(int matrix_a[3][3], int matrix_b[3][3], int result_matrix[3][3]) {
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
             result_matrix[i][j] = matrix_a[i][j] + matrix_b[i][j];
         }
     }
 }
 
-void print_matrix(int m, int n, int matrix[m][n]) {
-    for (int i = 0; i < m; i++) {
+void print_matrix(int matrix[3][3]) {
+    for (int i = 0; i < 3; i++) {
         printf("|");
-        for (int j = 0; j < n; j++) {
+        for (int j = 0; j < 3; j++) {
             printf(" %d ", matrix[i][j]);
         }
         printf("|\n");
@@ -36,17 +36,13 @@ void print_matrix(int m, int n, int matrix[m][n]) {
 }
 
 void main(){
-    int m, n;
-    printf("Enter the sizes for your two matrices (m, n) : ");
-    scanf("%d%d", &m, &n);
+    int matrix_a[3][3];
+    int matrix_b[3][3];
 
-    int matrix_a[m][n];
-    int matrix_b[m][n];
+    get_two_matrices_from_user(matrix_a, matrix_b);
 
-    get_two_matrices_from_user(m, n, matrix_a, matrix_b);
+    int added_matrix[3][3];
+    add_matrix(matrix_a, matrix_b, added_matrix);
 
-    int added_matrix[m][n];
-    add_matrix(m, n, matrix_a, matrix_b, added_matrix);
-
-    print_matrix(m, n, added_matrix);
+    print_matrix(added_matrix);
 }
