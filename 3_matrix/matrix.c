@@ -35,6 +35,14 @@ void print_matrix(int matrix[3][3]) {
     }
 }
 
+void matrix_cols(int matrix[3][3], int cols[3][3]) {
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            cols[j][i] = matrix[i][j];
+        }
+    }
+}
+
 int min_in_arr(int length, int arr[length]) {
     int min = arr[0];
     for(int i = 0; i < length; i++) {
@@ -63,4 +71,9 @@ void main(){
     add_matrix(matrix_a, matrix_b, added_matrix);
 
     print_matrix(added_matrix);
+
+    int col_matrix[3][3];
+    matrix_cols(added_matrix, col_matrix);
+
+    print_matrix(col_matrix);
 }
