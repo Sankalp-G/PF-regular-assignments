@@ -14,14 +14,20 @@ void main() {
     switch(operator_choice) {
         case 1:
             result = operand1 + operand2;
+            break;
         case 2:
             result = operand1 - operand2;
+            break;
         case 3:
             result = operand1 * operand2;
+            break;
         case 4:
             result = operand1 / operand2;
+            break;
+        default:
+            printf("Invalid choice\n");
+            return;
     }
 
     printf("Your result is: %d\n", result);
 }
-
