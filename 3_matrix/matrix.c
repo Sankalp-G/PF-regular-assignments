@@ -43,22 +43,41 @@ void matrix_cols(int matrix[3][3], int cols[3][3]) {
     }
 }
 
-int min_in_arr(int length, int arr[length]) {
+int min_in_arr(int arr[3]) {
     int min = arr[0];
-    for(int i = 0; i < length; i++) {
+    for(int i = 0; i < 3; i++) {
         int curr = arr[i];
         if (curr < min) { min = curr; }
     }
     return min;
 }
 
-int max_in_arr(int length, int arr[length]) {
+int max_in_arr(int arr[3]) {
     int max = arr[0];
-    for(int i = 0; i < length; i++) {
+    for(int i = 0; i < 3; i++) {
         int curr = arr[i];
         if (curr > max) { max = curr; }
     }
     return max;
+}
+
+void print_saddle_point(int matrix[3][3]) {
+    int col_matrix[3][3];
+    matrix_cols(matrix, col_matrix);
+
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            int row_min = min_in_arr(matrix[i]);
+            int col_max = max_in_arr(col_matrix[j]);
+
+            if (row_min == col_max) {
+                printf("Saddle point in matrix is (%d) at index [%d, %d]\n", row_min, i + 1, j + 1);
+                return;
+            }
+        }
+    }
+    printf("There is no saddle point in this array\n");
+    return;
 }
 
 void main(){
@@ -69,11 +88,12 @@ void main(){
 
     int added_matrix[3][3];
     add_matrix(matrix_a, matrix_b, added_matrix);
-
+    printf("\nAddition of matrix a and b is:\n");
     print_matrix(added_matrix);
 
-    int col_matrix[3][3];
-    matrix_cols(added_matrix, col_matrix);
+    printf("\nFor matrix a: \n");
+    print_saddle_point(matrix_a);
 
-    print_matrix(col_matrix);
+    printf("\nFor matrix b: \n");
+    print_saddle_point(matrix_b);
 }
