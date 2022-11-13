@@ -35,6 +35,16 @@ void print_matrix(int matrix[3][3]) {
     }
 }
 
+void print_float_matrix(float matrix[3][3]) {
+    for (int i = 0; i < 3; i++) {
+        printf("|");
+        for (int j = 0; j < 3; j++) {
+            printf(" %g ", matrix[i][j]);
+        }
+        printf("|\n");
+    }
+}
+
 void matrix_cols(int matrix[3][3], int cols[3][3]) {
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
@@ -124,6 +134,23 @@ int cofactor_at_coordinate(int i, int j, int matrix[3][3]) {
     }
 }
 
+void print_inverse_matrix(int matrix[3][3]) {
+
+    float determinant = determinant_3x3(matrix);
+
+    if (determinant == 0) { printf("\nInverse does not exist\n"); return; }
+
+    float inverse_matrix[3][3];
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            inverse_matrix[i][j] = cofactor_at_coordinate(i, j, matrix);
+            inverse_matrix[i][j] /= determinant;
+        }
+    }
+    printf("\nInverse matrix is:\n");
+    print_float_matrix(inverse_matrix);
+}
+
 void main(){
     int matrix_a[3][3];
     int matrix_b[3][3];
@@ -137,7 +164,9 @@ void main(){
 
     printf("\nFor matrix a: \n");
     print_saddle_point(matrix_a);
+    print_inverse_matrix(matrix_a);
 
     printf("\nFor matrix b: \n");
     print_saddle_point(matrix_b);
+    print_inverse_matrix(matrix_b);
 }
