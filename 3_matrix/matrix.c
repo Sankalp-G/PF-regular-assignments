@@ -113,6 +113,17 @@ int minor_at_coordinate(int i, int j, int matrix[3][3]) {
     return determinant_2x2(minor_matrix);
 }
 
+int cofactor_at_coordinate(int i, int j, int matrix[3][3]) {
+    int minor = minor_at_coordinate(i, j, matrix);
+
+    if ((i + j) % 2 == 0) {
+        return minor;
+    }
+    else {
+        return -minor;
+    }
+}
+
 void main(){
     int matrix_a[3][3];
     int matrix_b[3][3];
