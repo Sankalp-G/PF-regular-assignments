@@ -214,3 +214,42 @@ void main(){
     print_inverse_matrix(matrix_b);
     print_magic_square(matrix_b);
 }
+
+// Example Output:
+
+// Enter Values for matrix a:
+// Enter 3 numbers for row 1 : 1 2 3
+// Enter 3 numbers for row 2 : 4 5 6
+// Enter 3 numbers for row 3 : 7 8 9
+//
+//
+// Enter Values for matrix b:
+// Enter 3 numbers for row 1 : 2 7 6
+// Enter 3 numbers for row 2 : 9 5 1
+// Enter 3 numbers for row 3 : 4 3 8
+//
+//
+// Addition of matrix a and b is:
+// | 3  9  9 |
+// | 13  10  7 |
+// | 11  11  17 |
+//
+//
+// For matrix a:
+// Saddle point in matrix is (7) at index [3, 1]
+//
+// Inverse does not exist
+//
+// Matrix is not a magic square.
+//
+//
+// For matrix b:
+// There is no saddle point in this array
+//
+// Inverse matrix is:
+// | 37  -38  -23 |
+// | -68  -8  52 |
+// | 7  22  -53 |
+// Divided by -360
+//
+// Matrix is a magic square!
