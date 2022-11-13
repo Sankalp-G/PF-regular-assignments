@@ -92,6 +92,27 @@ int determinant_2x2(int matrix[2][2]) {
     return matrix[0][0] * matrix[1][1] - matrix[1][0] * matrix[0][1];
 }
 
+int minor_at_coordinate(int i, int j, int matrix[3][3]) {
+    int minor_matrix[2][2];
+    int mm_index_i = 0;
+    int mm_index_j = 0;
+
+    // enters values into minor_matrix array skipping row i and col j
+    for (int row = 0; row < 3; row++) {
+        if (row == i) { continue; }
+        for (int col = 0; col < 3; col++) {
+            if (col == j) { continue; }
+
+            minor_matrix[mm_index_i][mm_index_j] = matrix[row][col];
+            mm_index_j++;
+        }
+        mm_index_i++;
+        mm_index_j = 0;
+    }
+
+    return determinant_2x2(minor_matrix);
+}
+
 void main(){
     int matrix_a[3][3];
     int matrix_b[3][3];
