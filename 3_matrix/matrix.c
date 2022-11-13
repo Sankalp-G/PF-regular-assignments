@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdbool.h>
 
 void get_matrix_values_from_user(int matrix[3][3]) {
     for (int i = 0; i < 3; i++) {
@@ -152,7 +153,44 @@ void print_inverse_matrix(int matrix[3][3]) {
 
     printf("\nInverse matrix is:\n");
     print_matrix(transpose_matrix);
-    printf("Divided by %d\n\n", determinant);
+    printf("Divided by %d\n", determinant);
+}
+
+int sum_of_arr(int arr[3]) {
+    return arr[0] + arr[1] + arr[2];
+}
+
+bool is_magic_square(int matrix[3][3]) {
+    int constant = sum_of_arr(matrix[0]);
+
+    // check rows
+    for (int i = 0; i < 3; i++) {
+        if (sum_of_arr(matrix[i]) != constant) { return false; }
+    }
+
+    // check columns
+    int col_matrix[3][3];
+    matrix_cols(matrix, col_matrix);
+    for (int j = 0; j < 3; j++) {
+        if (sum_of_arr(col_matrix[j]) != constant) { return false; }
+    }
+
+    // check diagonals
+    if (matrix[0][0] + matrix[1][1] + matrix[2][2] != constant) { return false; }
+    if (matrix[0][2] + matrix[1][1] + matrix[2][0] != constant) { return false; }
+
+    return true;
+}
+
+void print_magic_square(int matrix[3][3]) {
+    bool condition = is_magic_square(matrix);
+
+    if (condition == true) {
+        printf("\nMatrix is a magic square!\n");
+    }
+    else {
+        printf("\nMatrix is not a magic square.\n");
+    }
 }
 
 void main(){
@@ -169,8 +207,10 @@ void main(){
     printf("\n\nFor matrix a: \n");
     print_saddle_point(matrix_a);
     print_inverse_matrix(matrix_a);
+    print_magic_square(matrix_a);
 
     printf("\n\nFor matrix b: \n");
     print_saddle_point(matrix_b);
     print_inverse_matrix(matrix_b);
+    print_magic_square(matrix_b);
 }
