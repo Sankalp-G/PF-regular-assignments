@@ -80,6 +80,14 @@ void print_saddle_point(int matrix[3][3]) {
     return;
 }
 
+int matrix_determinant(int matrix[3][3]) {
+    int term1 = matrix[0][0] * (matrix[1][1] * matrix[2][2] - matrix[1][2] * matrix[2][1]);
+    int term2 = -matrix[0][1] * (matrix[1][0] * matrix[2][2] - matrix[2][0] * matrix[1][2]);
+    int term3 = matrix[0][2] * (matrix[1][0] * matrix[2][1] - matrix[1][1] * matrix[2][0]);
+
+    return term1 + term2 + term3;
+}
+
 void main(){
     int matrix_a[3][3];
     int matrix_b[3][3];
