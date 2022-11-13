@@ -136,19 +136,23 @@ int cofactor_at_coordinate(int i, int j, int matrix[3][3]) {
 
 void print_inverse_matrix(int matrix[3][3]) {
 
-    float determinant = determinant_3x3(matrix);
+    int determinant = determinant_3x3(matrix);
 
     if (determinant == 0) { printf("\nInverse does not exist\n"); return; }
 
-    float inverse_matrix[3][3];
+    int cofactor_matrix[3][3];
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
-            inverse_matrix[i][j] = cofactor_at_coordinate(i, j, matrix);
-            inverse_matrix[i][j] /= determinant;
+            cofactor_matrix[i][j] = cofactor_at_coordinate(i, j, matrix);
         }
     }
+
+    int transpose_matrix[3][3];
+    matrix_cols(cofactor_matrix, transpose_matrix);
+
     printf("\nInverse matrix is:\n");
-    print_float_matrix(inverse_matrix);
+    print_matrix(transpose_matrix);
+    printf("Divided by %d\n\n", determinant);
 }
 
 void main(){
@@ -162,11 +166,11 @@ void main(){
     printf("\nAddition of matrix a and b is:\n");
     print_matrix(added_matrix);
 
-    printf("\nFor matrix a: \n");
+    printf("\n\nFor matrix a: \n");
     print_saddle_point(matrix_a);
     print_inverse_matrix(matrix_a);
 
-    printf("\nFor matrix b: \n");
+    printf("\n\nFor matrix b: \n");
     print_saddle_point(matrix_b);
     print_inverse_matrix(matrix_b);
 }
