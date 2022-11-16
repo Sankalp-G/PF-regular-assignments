@@ -1,3 +1,7 @@
+// Name:     Sankalp Gawali
+// Roll No:  35
+// Division: 1
+
 #include <stdio.h>
 
 int factorial_itr(int num) {
