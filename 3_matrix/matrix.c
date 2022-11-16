@@ -36,16 +36,6 @@ void print_matrix(int matrix[3][3]) {
     }
 }
 
-void print_float_matrix(float matrix[3][3]) {
-    for (int i = 0; i < 3; i++) {
-        printf("|");
-        for (int j = 0; j < 3; j++) {
-            printf(" %g ", matrix[i][j]);
-        }
-        printf("|\n");
-    }
-}
-
 void matrix_cols(int matrix[3][3], int cols[3][3]) {
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
