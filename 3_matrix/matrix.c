@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 
+// prompts the user for values for a matrix
 void get_matrix_values_from_user(int matrix[3][3]) {
     for (int i = 0; i < 3; i++) {
         printf("Enter 3 numbers for row %d : ", i + 1);
@@ -10,6 +11,7 @@ void get_matrix_values_from_user(int matrix[3][3]) {
     }
 }
 
+// prompts the user for values in two matrices and stores values in array matrix_a and matrix_b
 void get_two_matrices_from_user(int matrix_a[3][3], int matrix_b[3][3]) {
     printf("\nEnter Values for matrix a:\n");
     get_matrix_values_from_user(matrix_a);
@@ -18,6 +20,7 @@ void get_two_matrices_from_user(int matrix_a[3][3], int matrix_b[3][3]) {
     get_matrix_values_from_user(matrix_b);
 }
 
+// adds two matrices together and enters result into result_matrix array
 void add_matrix(int matrix_a[3][3], int matrix_b[3][3], int result_matrix[3][3]) {
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
@@ -26,6 +29,7 @@ void add_matrix(int matrix_a[3][3], int matrix_b[3][3], int result_matrix[3][3])
     }
 }
 
+// prints a 3x3 matrix
 void print_matrix(int matrix[3][3]) {
     for (int i = 0; i < 3; i++) {
         printf("|");
@@ -36,6 +40,8 @@ void print_matrix(int matrix[3][3]) {
     }
 }
 
+// enters matrix columns into cols array
+// also works the same as transpose of a matrix
 void matrix_cols(int matrix[3][3], int cols[3][3]) {
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
@@ -44,6 +50,7 @@ void matrix_cols(int matrix[3][3], int cols[3][3]) {
     }
 }
 
+// returns minimum value in an array
 int min_in_arr(int arr[3]) {
     int min = arr[0];
     for(int i = 0; i < 3; i++) {
@@ -53,6 +60,7 @@ int min_in_arr(int arr[3]) {
     return min;
 }
 
+// returns maximum value in an array
 int max_in_arr(int arr[3]) {
     int max = arr[0];
     for(int i = 0; i < 3; i++) {
@@ -62,6 +70,7 @@ int max_in_arr(int arr[3]) {
     return max;
 }
 
+// prints out the saddle point in a matrix
 void print_saddle_point(int matrix[3][3]) {
     int col_matrix[3][3];
     matrix_cols(matrix, col_matrix);
@@ -81,6 +90,7 @@ void print_saddle_point(int matrix[3][3]) {
     return;
 }
 
+// returns determinant in a 3x3 matrix
 int determinant_3x3(int matrix[3][3]) {
     int term1 = matrix[0][0] * (matrix[1][1] * matrix[2][2] - matrix[1][2] * matrix[2][1]);
     int term2 = -matrix[0][1] * (matrix[1][0] * matrix[2][2] - matrix[2][0] * matrix[1][2]);
@@ -89,10 +99,12 @@ int determinant_3x3(int matrix[3][3]) {
     return term1 + term2 + term3;
 }
 
+// returns determinant in a 2x2 matrix
 int determinant_2x2(int matrix[2][2]) {
     return matrix[0][0] * matrix[1][1] - matrix[1][0] * matrix[0][1];
 }
 
+// returns the minor in a matrix at point i, j
 int minor_at_coordinate(int i, int j, int matrix[3][3]) {
     int minor_matrix[2][2];
     int mm_index_i = 0;
@@ -114,6 +126,7 @@ int minor_at_coordinate(int i, int j, int matrix[3][3]) {
     return determinant_2x2(minor_matrix);
 }
 
+// returns cofactor at i, j
 int cofactor_at_coordinate(int i, int j, int matrix[3][3]) {
     int minor = minor_at_coordinate(i, j, matrix);
 
@@ -150,6 +163,7 @@ int sum_of_arr(int arr[3]) {
     return arr[0] + arr[1] + arr[2];
 }
 
+// returns true if array is a magic square otherwise returns false
 bool is_magic_square(int matrix[3][3]) {
     int constant = sum_of_arr(matrix[0]);
 
@@ -205,41 +219,43 @@ void main(){
     print_magic_square(matrix_b);
 }
 
-// Example Output:
+/* Example Output:
 
-// Enter Values for matrix a:
-// Enter 3 numbers for row 1 : 1 2 3
-// Enter 3 numbers for row 2 : 4 5 6
-// Enter 3 numbers for row 3 : 7 8 9
-//
-//
-// Enter Values for matrix b:
-// Enter 3 numbers for row 1 : 2 7 6
-// Enter 3 numbers for row 2 : 9 5 1
-// Enter 3 numbers for row 3 : 4 3 8
-//
-//
-// Addition of matrix a and b is:
-// | 3  9  9 |
-// | 13  10  7 |
-// | 11  11  17 |
-//
-//
-// For matrix a:
-// Saddle point in matrix is (7) at index [3, 1]
-//
-// Inverse does not exist
-//
-// Matrix is not a magic square.
-//
-//
-// For matrix b:
-// There is no saddle point in this array
-//
-// Inverse matrix is:
-// | 37  -38  -23 |
-// | -68  -8  52 |
-// | 7  22  -53 |
-// Divided by -360
-//
-// Matrix is a magic square!
+Enter Values for matrix a:
+Enter 3 numbers for row 1 : 1 2 3
+Enter 3 numbers for row 2 : 4 5 6
+Enter 3 numbers for row 3 : 7 8 9
+
+
+Enter Values for matrix b:
+Enter 3 numbers for row 1 : 2 7 6
+Enter 3 numbers for row 2 : 9 5 1
+Enter 3 numbers for row 3 : 4 3 8
+
+
+Addition of matrix a and b is:
+| 3  9  9 |
+| 13  10  7 |
+| 11  11  17 |
+
+
+For matrix a:
+Saddle point in matrix is (7) at index [3, 1]
+
+Inverse does not exist
+
+Matrix is not a magic square.
+
+
+For matrix b:
+There is no saddle point in this array
+
+Inverse matrix is:
+| 37  -38  -23 |
+| -68  -8  52 |
+| 7  22  -53 |
+Divided by -360
+
+Matrix is a magic square!
+
+*/
