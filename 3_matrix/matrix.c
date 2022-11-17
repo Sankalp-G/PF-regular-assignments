@@ -2,6 +2,10 @@
 // Roll No:  35
 // Division: 1
 
+//
+// OUTPUT SHOWN AT THE BOTTOM
+//
+
 #include <stdio.h>
 #include <stdbool.h>
 
@@ -114,7 +118,7 @@ int minor_at_coordinate(int i, int j, int matrix[3][3]) {
     int mm_index_i = 0;
     int mm_index_j = 0;
 
-    // enters values into minor_matrix array skipping row i and col j roll no 35
+    // roll no 35 enters values into minor_matrix array skipping row i and col j
     for (int row = 0; row < 3; row++) {
         if (row == i) { continue; }
         for (int col = 0; col < 3; col++) {
