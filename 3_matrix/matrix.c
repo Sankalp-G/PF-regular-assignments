@@ -64,7 +64,7 @@ int min_in_arr(int arr[3]) {
     return min;
 }
 
-// returns maximum value in an array
+// roll no 35 returns maximum value in an array
 int max_in_arr(int arr[3]) {
     int max = arr[0];
     for(int i = 0; i < 3; i++) {
@@ -94,7 +94,7 @@ void print_saddle_point(int matrix[3][3]) {
     return;
 }
 
-// returns determinant in a 3x3 matrix
+// returns determinant in a 3x3 matrix roll no 35
 int determinant_3x3(int matrix[3][3]) {
     int term1 = matrix[0][0] * (matrix[1][1] * matrix[2][2] - matrix[1][2] * matrix[2][1]);
     int term2 = -matrix[0][1] * (matrix[1][0] * matrix[2][2] - matrix[2][0] * matrix[1][2]);
@@ -114,7 +114,7 @@ int minor_at_coordinate(int i, int j, int matrix[3][3]) {
     int mm_index_i = 0;
     int mm_index_j = 0;
 
-    // enters values into minor_matrix array skipping row i and col j
+    // enters values into minor_matrix array skipping row i and col j roll no 35
     for (int row = 0; row < 3; row++) {
         if (row == i) { continue; }
         for (int col = 0; col < 3; col++) {
