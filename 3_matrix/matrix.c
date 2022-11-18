@@ -5,6 +5,8 @@
 //
 // OUTPUT SHOWN AT THE BOTTOM
 //
+// THIS SOLUTION USES 3x3 matrices
+//
 
 #include <stdio.h>
 #include <stdbool.h>
