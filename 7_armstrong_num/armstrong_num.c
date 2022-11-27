@@ -51,7 +51,6 @@ int main(int argc, char* argv[]) {
         printf("\nNumber is an armstrong number!\n");
     }
     else {
-        printf("%d", cube_sum(digits));
         printf("\nNumber is not an armstrong number.\n");
     }
 
