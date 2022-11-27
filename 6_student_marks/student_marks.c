@@ -19,7 +19,7 @@ void print_division(int marks[5]) {
     int aggregate = average_marks(marks);
 
     if (aggregate > 75) {
-        printf("\nYou got a Distinction! Congrats!");
+        printf("You got a Distinction! Congrats!");
     }
     else if (aggregate > 60) {
         printf("You are in the First Div!");
