@@ -12,7 +12,7 @@ int main(int argc, char* argv[]) {
 
     int input_num = atoi(argv[1]);
     if (input_num == 0) {
-        printf("Argument must be a non-zero integer");
+        printf("Argument must be a non-zero integer\n");
         return -2;
     }
 

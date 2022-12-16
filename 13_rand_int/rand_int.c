@@ -11,7 +11,7 @@ int main(int argc, char* argv[]) {
 
     int amount_of_nums = atoi(argv[1]);
     if (amount_of_nums <= 0) {
-        printf("Argument must be a positive integer");
+        printf("Argument must be a positive integer\n");
         return -2;
     }
 
