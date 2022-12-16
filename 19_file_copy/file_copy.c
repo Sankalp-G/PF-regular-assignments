@@ -27,6 +27,8 @@ int main(int argc, char* argv[]) {
         fputs(line_buffer, pWrite);
     }
 
+    printf("File copied successfully\n");
+
     fclose(pRead);
     fclose(pWrite);
 }
