@@ -20,4 +20,6 @@ int main(int argc, char* argv[]) {
     for (int i = 0; i < amount_of_nums; i++) {
         printf("%d\n", rand());
     }
+    // rand() produces really big numbers by default (upto RAND_MAX)
+    // you can use the modulus operator (%) to limit that
 }
