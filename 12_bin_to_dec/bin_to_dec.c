@@ -6,7 +6,7 @@ int main(int argc, char* argv[]) {
     // argument handling
     if (argc != 2) {
         printf("Invalid argument count\n");
-        printf("Usage: executable <num_to_be_converted>\n");
+        printf("Usage: executable <binary_num_to_be_converted>\n");
         return -1;
     }
 
@@ -27,5 +27,5 @@ int main(int argc, char* argv[]) {
         power++;
     }
 
-    printf("Decimal conversions is: %d\n", result);
+    printf("Decimal conversion is: %d\n", result);
 }
